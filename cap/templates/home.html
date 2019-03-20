@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h4>Przeszukajmy zanieczyszczenia</h4>  <br>
+        <p>Podaj miasta ktore chccesz porownac</p>
+
+        <form class="" action="" method="post">
+            <input type="text" name="city_1" value="">
+            <input type="text" name="city_2" value="">
+            <input type="text" name="city_3" value="">
+            <input type="submit" name="submit" value="Porównaj">
+        </form>
+
+    <div class="" >
+    {% for j in range(city_info|length) %}
+    <div style="margin-bottom:  50px">
+
+
+        <li>MIASTO: {{ city_info[j][0] }}</li><br>
+        <li>WSKAŹNIKI: </li>
+            {% for i in range (city_info[j][1]|length) %}
+            <li>{{ city_info[j][1][i]['name'] }} {{ city_info[j][1][i]['value'] }}</li>
+            {% endfor %}
+                    <br>
+        <li>OPIS: {{ city_info[j][2][0]['name'] }} , {{ city_info[j][2][0]['value'] }} , {{ city_info[j][2][0]['level'] }} , {{ city_info[j][2][0]['description'] }} , {{ city_info[j][2][0]['advice'] }}</li>
+                    <br>
+        <li>NORMY: </li>
+            {% for i in range(city_info[j][3]|length) %}
+                <li>{{ city_info[j][3][i]['pollutant'] }} Limit: {{ city_info[j][3][i]['limit']}} Stężenie procentowe {{ city_info[j][3][i]['percent'] }}</li>
+            {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+
+    </body>
+
+
+</html>
