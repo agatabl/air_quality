@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <form class="" action="" method="post">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <legend>Register today</legend>
+                <div class="">
+                    Email: {{ form.email }}
+
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="">
+                    Password: {{ form.password }}
+                    {% if form.password.errors %}
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="">
+                    Confirm password: {{ form.reenter_password }}
+                    {% if form.reenter_password.errors %}
+                        {% for error in form.reenter_password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="">
+                    {{ form.submit }}
+                </div>
+            </fieldset>
+
+        </form>
+        <small>
+            Already have an acount?
+                <a href="{{ url_for('login') }}"> LogIn</a>
+        </small>
+
+
+    </body>
+</html>
